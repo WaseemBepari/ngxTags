@@ -1,6 +1,6 @@
 {
   "name": "ngx-tags",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^7.1.0",
     "@angular/core": "^7.1.0"
@@ -21,7 +21,7 @@
     "angular",
     "angular7",
     "ngx",
-    "tags",
+    "ngx-tags",
     "input",
     "tags"
   ] 
