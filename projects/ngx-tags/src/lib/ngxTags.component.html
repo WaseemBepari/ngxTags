@@ -1,0 +1,20 @@
+<section class="ngx-tags">
+  <section class="tag-container" [closeMenu]="isMenuOpen" (whenClickedOut)="whenClickedOut()" [ngClass]="{'ngx-tags-disabled':disabled}" >
+    <span class="tag" *ngFor="let tag of tags;let $index = index" [ngClass]="{'tag-readonly': tag.readonly}">
+      <ng-container [ngTemplateOutletContext]="{ item: tag, index: $index,tagLabel:tagLabel,tagEditable:tagEditable }"
+        [ngTemplateOutlet]="tagTemplate ? tagTemplate:defaultTagItemTemplate">
+      </ng-container>
+      <a href="#" class="close" [hidden]="!canDeleteTags" (click)="del($index)"></a>
+    </span>
+    <span class="tag-input" >
+      <input type="text" *ngIf="canAddTags" [(ngModel)]="inputTag" (blur)="blur()"
+        [placeholder]="placeholder" (keydown.enter)="enter($event)" (keydown.backspace)="backspace()"
+        (input)="input()">
+        </span>
+    </section>
+  <ngx-tags-dropdown [items]="_options" [dropdownItemTemplate]="dropdownItemTemplate" [tagLabel]="tagLabel" [inputTag]="inputTag" (select)="select($event) " [hidden]="!isMenuOpen"></ngx-tags-dropdown>
+</section>
+
+<ng-template #defaultTagItemTemplate let-item="item" let-tagLabel="tagLabel" let-input="input" let-tagEditable="tagEditable" let-index="index">
+  <ngx-tag [item]="item" [tagEditable]="tagEditable" [tagLabel]="tagLabel" [index]="index" (change)="save($event)"></ngx-tag>
+</ng-template>

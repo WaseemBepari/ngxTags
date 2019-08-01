@@ -1,0 +1,20 @@
+<article class="dropdown"  #dropdown tabindex="0">
+	<a class="item" *ngFor="let item of items;let $index =index" (click)="emitSelectedItem(item,$index)" [ngClass]="{'keynav-active':$index == _focusIndex}" [InView]="$index == _focusIndex" >
+   <ng-container 
+      [ngTemplateOutletContext]="{ 
+        item: item, 
+        label: tagLabel, 
+        input: inputTag, 
+        index: index }"
+      [ngTemplateOutlet]="dropdownItemTemplate ? dropdownItemTemplate : defaultDropdownItemTemplate">
+    </ng-container>
+  </a>
+</article>
+<ng-template 
+  #defaultDropdownItemTemplate
+  let-item="item"
+  let-label="label"
+  let-input="input"
+  let-index="index">
+    <span > {{item[label]}}</span>
+</ng-template>

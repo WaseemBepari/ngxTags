@@ -1,0 +1,109 @@
+@import "./styles/variables";
+.ngx-tags {
+  position: relative;
+  display: block;
+  width: $ngx-tags-width;
+
+  .ngx-tags-disabled{
+    opacity: .7;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .tag-container{
+    display: block;
+    width: $ngx-tags-width;
+    padding: $ngx-container-padding-top $ngx-container-padding-left;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $ngx-container-clr;
+    background-color: $ngx-container-bg-clr;
+    background-clip: padding-box;
+    border: 1px solid $ngx-container-bdr-clr;
+    border-radius: $ngx-container-bdr-radius;
+    transition: border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+    box-sizing: border-box;
+
+    .tag {
+      background: $ngx-tag-bg-clr;
+      padding: $ngx-tag-bg-padding;
+      border-radius: $ngx-container-bdr-radius;
+      margin-right: $ngx-tag-bg-margin;
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+    }
+    .tag-input{
+      @extend .tag;
+      background: $ngx-container-bg-clr;
+      input {
+        border: none;
+        outline: none;
+        min-width: 140px;
+        max-width: 100%;
+        height: 100%;
+        margin-left: 4px;
+        box-sizing: border-box;
+        display: inline-block;
+      }
+    }
+    .tag-readonly {
+      user-select: none;
+      pointer-events: none;
+      opacity: .7;
+    }
+    .close {
+      position: relative;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      opacity: 0.8;
+    
+      &:hover {
+        opacity: 1;
+      }
+      &:before, &:after {
+        position: absolute;
+          left: 3px;
+          content: ' ';
+          height: 11px;
+          width: 2px;
+          background-color: #333;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.keynav-active{
+  background: #e1e4e8;
+}
+.dropdown {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #e1e4e8;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  border-radius: 2px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  background: white;
+  display: block;
+  width: 100%;
+  z-index: 1;
+}
+.item {
+  padding: 4px 2px;
+  display: block;
+  &:hover {
+    @extend .keynav-active;
+  }
+}
+
+

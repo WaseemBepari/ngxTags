@@ -1,0 +1,28 @@
+{
+  "name": "ngx-tags",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WaseemBepari/ngxTags"
+  },
+  "bugs": {
+    "url": "https://github.com/WaseemBepari/ngxTags/issues"
+  },
+  "author": {
+    "name": "Waseem Bepari",
+    "email": "waseem.bepari@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular7",
+    "ngx",
+    "tags",
+    "input",
+    "tags"
+  ] 
+}

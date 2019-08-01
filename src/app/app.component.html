@@ -1,0 +1,73 @@
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-3">
+				<h3 class="text-center">Angular 7 ngx-tags</h3>
+				<form [formGroup]="tagsForm" >
+					<div class="form-group">
+						<label>default tags</label>
+                <ngx-tags formControlName="defaultTags" [options]="statesTags" [removeLastOnBackspace]="true" [canDeleteTags]="true"
+                [canAddTags]="true"  >
+                </ngx-tags>
+            {{defaultTags0 | json}}
+          </div>
+					<div class="form-group">
+						<label>max tags limit 5</label>
+                <ngx-tags formControlName="defaultTags" [maxTags]="5" [options]="statesTags" [removeLastOnBackspace]="true" [canDeleteTags]="true"
+                [canAddTags]="true" [allowDupes]="true" [onlyFromDropdown]="true" >
+                </ngx-tags>
+            {{defaultTags | json}}
+          </div>
+					<div class="form-group">
+						<label>disabled tags</label>
+                <ngx-tags  formControlName="disabledTags" [options]="statesTags" [maxTags]="4" [removeLastOnBackspace]="true" [canDeleteTags]="true"
+                [canAddTags]="true" [allowDupes]="true" [onlyFromDropdown]="true" >
+                </ngx-tags>
+            {{defaultTags | json}}
+          </div>
+					<div class="form-group">
+						<label>ready-only tags</label>
+                <ngx-tags  formControlName="readyOnlyTags" [options]="statesTags" [maxTags]="4" [removeLastOnBackspace]="true" [canDeleteTags]="true"
+                [canAddTags]="true" [allowDupes]="true" [onlyFromDropdown]="true" >
+                </ngx-tags>
+            {{defaultTags | json}}
+          </div>
+					<div class="form-group">
+						<label>custom field tags</label>
+                <ngx-tags 
+                  formControlName="customTagFields"
+                  [options]="customTagFields" 
+                  [tagTemplate]="tagTemplate"
+                  [tagTemplate]="tagTemplate"
+                  [dropdownItemTemplate]="tagTemplate"
+                  [tagLabel]="'name'"
+                  [removeLastOnBackspace]="true"
+                  [canDeleteTags]="true"
+                  [canAddTags]="true"
+                  [allowDupes]="true"
+                  [onlyFromDropdown]="true"
+                >
+                </ngx-tags>
+            {{customTagFields | json}}
+          </div>
+					<div class="form-group">
+						<label>editable tag field</label>
+                <ngx-tags  formControlName="editableTagFields" [tagEditable]="true" [options]="statesTags" [maxTags]="4" [removeLastOnBackspace]="true" [canDeleteTags]="true"
+                [canAddTags]="true" [allowDupes]="true" [onlyFromDropdown]="true" disabled=true >
+                </ngx-tags>
+            {{customTagFields | json}}
+          </div>
+          <div class="form-group">
+                        <button class="btn btn-primary" [disabled]="tagsForm.valid" >Register</button>
+                    </div>
+          </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #tagTemplate let-item="item" let-index="index">
+    <img [src]="item.flag" class="flag" *ngIf="item.flag"/>
+    {{item.name}}
+</ng-template>
